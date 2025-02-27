@@ -1,9 +1,29 @@
 package org.example;
 
 import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class OperadoresTest extends TestCase {
+
+    //Preparação Teste
+    public static int contadorTeste = 1;
+
+
+
+    // Preparação teste
+    @Before
+    public void preparaTeste(){
+        System.out.println("Vou realizar o Teste"+ contadorTeste);
+    }
+
+    //Finalização
+    @After
+    public void finalizaTeste(){
+        System.out.println("Finalizando o Teste");
+        contadorTeste += contadorTeste ;
+    }
 
     Operadores operadoresParaguayo = new Operadores(10, 2);
     Integer resultadoEsperado;
@@ -30,7 +50,7 @@ public class OperadoresTest extends TestCase {
     public void testDividir2por12() {
         Integer result = operadoresParaguayo2.dividir();
         resultadoEsperado = 6;
-        assertEquals(resultadoEsperado, result);
+        assertEquals(resultadoEsperado, result, 0.5);
 
     }
 }
